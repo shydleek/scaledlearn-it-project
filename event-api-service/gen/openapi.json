@@ -45,6 +45,43 @@
       },
       "x-swagger-router-controller" : "event-controller"
     },
+    "/places" : {
+      "get" : {
+        "description" : "Returns list of events in different places",
+        "operationId" : "places",
+        "parameters" : [ {
+          "name" : "date",
+          "in" : "query",
+          "description" : "Filtering date",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PlacesResponse"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "x-swagger-router-controller" : "place-controller"
+    },
     "/swagger" : {
       "x-swagger-pipe" : "swagger_raw"
     }
@@ -55,6 +92,12 @@
         "type" : "array",
         "items" : {
           "$ref" : "#/components/schemas/Event"
+        }
+      },
+      "PlacesResponse" : {
+        "type" : "array",
+        "items" : {
+          "$ref" : "#/components/schemas/Place"
         }
       },
       "Event" : {
@@ -71,6 +114,27 @@
             "type" : "string"
           },
           "date" : {
+            "type" : "string"
+          },
+          "location" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Place" : {
+        "required" : [ "type" ],
+        "type" : "object",
+        "properties" : {
+          "type" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "date" : {
+            "type" : "string"
+          },
+          "length" : {
             "type" : "string"
           },
           "location" : {

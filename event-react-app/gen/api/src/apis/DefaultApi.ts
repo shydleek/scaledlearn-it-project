@@ -33,7 +33,7 @@ export interface EventsRequest {
 export class DefaultApi extends runtime.BaseAPI {
 
     /**
-     * Returns list of city events
+     * Returns list of city event
      */
     async eventsRaw(requestParameters: EventsRequest): Promise<runtime.ApiResponse<Array<Event>>> {
         const queryParameters: any = {};
@@ -55,7 +55,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Returns list of city events
+     * Returns list of city event
      */
     async events(requestParameters: EventsRequest): Promise<Array<Event>> {
         const response = await this.eventsRaw(requestParameters);
