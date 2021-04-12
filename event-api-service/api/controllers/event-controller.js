@@ -40,14 +40,14 @@ var faker = require('faker');
     // this sends back a JSON response which is a single string
     res.json([
       {
-        "id": '' + faker.random.number(),
+        "id": '' + faker.datatype.number(),
         "name": name + ' by ' + faker.name.findName(),
         "location": "Minsk, Independence av. 152",
         "image": "fest.jpg",
         "date": date
       },
       {
-        "id": '' + faker.random.number(),
+        "id": '' + faker.datatype.number(),
         "name": name + ' by ' + faker.name.findName(),
         "location": "Minsk, Independence av. 152",
         "image": "fest.jpg",
